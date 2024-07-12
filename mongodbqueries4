@@ -1,0 +1,676 @@
+
+1::
+
+[
+ {
+    $group:
+    {
+    _id:null,
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+2
+[
+  {
+$match:
+  {
+    role:"admin",
+
+}
+  }
+  
+]
+3
+[
+  {
+$match:
+  {
+    role:"customer",
+    username:/Karamchandani/
+
+}
+  }
+  
+]
+
+4
+[
+  {
+$match:
+  {
+    username:"Sumanth Rao"
+
+}
+  }
+  
+]
+
+quesno.5
+[
+  {
+$match:
+  {
+    username:/^R/
+
+}
+  }
+  
+]
+
+6:
+[
+  {
+$match:
+  {
+skills:"Python"
+    
+
+}
+  }
+  
+]
+
+7:
+[
+  {
+$match:
+  {
+skills:["Java","Python"]
+}
+  }
+  
+]
+
+
+8:
+[
+  {
+$match:
+  {
+firstName:"Aryan",
+    lastName:"Gupta"
+}
+  }
+  
+]
+
+9:
+[
+  {
+    $match:
+      {
+        skills:"Java",
+        skills:{"$ne":"Python"}
+        
+}
+  }
+    ]
+
+10:
+
+[
+  {
+    $match:
+      {
+        role:"customer",
+        lastName:"Sharma"
+        
+        
+}
+  }
+    ]
+11
+
+[
+  {
+    $match:
+      {
+        "skills": { 
+        "$size": 3 
+             
+}
+  }
+  }
+    ]
+
+12:
+[
+  {
+    $match:
+      {
+        role:"admin",
+        firstName:/^S/
+             
+}
+  }
+  
+    ]
+
+13:
+[
+  {
+    $match:
+      {
+        role:{"$ne":"admin"},
+        skills:"Java"
+             
+}
+  }
+  
+    ]
+
+14:
+[
+  {
+    $match:
+      {
+         "role": {
+        "$exists": false
+    }
+             
+}
+  }
+  
+    ]
+15:**
+
+[
+  {
+    $match:
+      {
+     $expr: {
+        $gte: [{ $size: "$skills" }, 4]
+      }      
+}
+  }
+     ]
+
+16:
+[
+  {
+    $match:
+      {
+     role:"customer",
+        "skills":{"$exists":false}
+}
+  }
+     ]
+17:
+
+[
+  {
+    $match:
+      {
+     useremail:/regexsoftware.com/
+}
+  }
+     ]
+18:***
+
+[
+  {
+    $match:
+      {
+     useremail:{"$ne":"gmail.com"}
+}
+  }
+     ]
+
+19.
+[
+  {
+    $match:
+      {
+     lastName:{"$ne":"Singh"}
+}
+  }
+     ]
+
+20::
+
+
+[
+  {
+    $match:
+      {
+     role:"admin",
+        skills:"Java"
+}
+  }
+     ]
+
+21::
+
+[
+  {
+    $match:
+      {
+     role:"custmore",
+	firstName:"Ananya"
+        
+}
+  }
+     ]
+
+
+
+22::
+
+[
+  {
+    $match:
+      {
+         $expr: {
+        $gte: [{ $size: "$skills" }, 1]
+      } ,
+        role:"admin"
+}
+  }
+     ]
+
+23::
+
+[
+  {
+    $match:
+      {
+  role:"admin",
+        firstName:/^R/
+}
+  }
+     ]
+
+
+
+
+24::
+[
+  {
+    $match:
+      {
+  role:"customer",
+        lastName:"Patel"
+}
+  }
+     ]
+25::
+
+
+[
+  {
+    $match:
+      {
+  role:"admin",
+        skills:"Python"
+}
+  }
+]
+
+26::
+[
+  {
+    $match:
+      {
+  role:"customer",
+        lastName:{"$ne":"Gupta"}
+}
+  }
+]
+27::
+
+[
+  {
+    $match:
+      {
+  role:"admin",
+        useremail:/@regexsoftware.com/
+}
+  }
+]
+28::
+
+[
+  {
+    $match:
+      {
+  role:"customer",
+        skills:"React"
+}
+  }
+]
+29::
+
+[
+  {
+    $match:
+      {
+  role:"customer",
+        skills:"SQL"
+}
+  }
+]
+
+30::
+[
+  {
+    $match:
+      {
+  role:"admin",
+        $expr: {
+        $gte: [{ $size: "$skills" }, 3]
+      } 
+}
+  }
+]
+
+
+31::
+
+[
+  {
+    $match:{
+    "role": "customer",
+    "skills": { "$all": ["Java", "C++"] }
+}
+  }
+]
+
+
+32::
+
+[
+  {
+    $match:{
+    role: "admin",
+    useremail:{"$ne":"gmail.com"}  
+    
+}
+  }
+]
+
+
+
+33::
+
+[
+  {
+    $match:{
+    role: "customer",
+    lastName:/^M/  
+    
+}
+  }
+]
+
+34::
+
+[
+  {
+    $match:{
+    role: "admin",
+    firstName:{"$ne":"Rahul"}  
+    
+}
+  }
+]
+
+
+35::
+
+[
+  {
+    $match:{
+    role:"customer",
+    useremail:{"$not":/gmail.com/}  
+    
+}
+  }
+]
+
+
+
+36::
+
+[
+  {
+    $match:{
+    role: "admin",
+    skills: { 
+        "$all": ["Java"],
+        "$nin": ["JavaScript"]
+    } 
+}
+  }
+]
+
+
+37::
+
+[
+  {
+    $match:{
+    role: "customer",
+    firstName:{$ne:"Ananya"}
+}
+  }
+]
+
+
+38::
+[
+  {
+    $match:{
+    role: "admin",
+    useremail:/regexsoftware.com/
+}
+  }
+]
+
+
+39::
+[
+  {
+    $match:{
+    role: "customer",
+    skills:{
+      $all:["HTML"],
+      $nin:["CSS"]
+        }
+     
+    }
+  }
+]
+
+
+40::
+[
+  {
+    $match:{
+    role: "admin",
+    skills:["Java","JavaScript"]
+     
+    }
+  }
+]
+41::
+
+[
+  {
+    $group:
+    {
+    _id:"$username",
+      avgsalary:{$avg:"$age"}
+}
+  }
+  ]
+
+42::
+
+[
+  {
+    $match:
+      {
+         gender:"Female",
+        city:"Jaipur",
+        skills:"Python"
+      }
+   
+  }
+  ]
+
+
+43::
+
+[
+  {
+    $match:
+      {
+         gender:"Male",
+        city:"New Delhi",
+        age:{"$gt":26 }
+      }
+   
+  }
+  ]
+
+
+44::
+
+[
+  {
+    $match:
+      {
+        $or:[ {city:"Mumbai"},{city:"New Delhi"}]
+             }
+      }
+  ]
+
+45::
+
+[
+  {
+    $group:
+    {
+    _id:"$lastName",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+46::
+
+[
+  {
+    $group:
+    {
+    _id:"$city",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+
+47::
+
+
+[
+  {
+    $match:
+    {
+      city:"Jaipur",
+      gender:"Female"
+}
+  },
+  {
+    $group:
+    {
+    _id:"$city",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+
+48::
+
+
+[
+  {
+    $match:
+    {
+      city:"New Delhi",
+      gender:"Male",
+      skills:"Java"
+}
+  },
+  {
+    $group:
+    {
+    _id:"$city",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+49::
+
+
+[
+  {
+    $match:
+    {
+      city:"Hyderabad",
+      age:{"$gt":26},
+      skills:["Python","C++"]
+  
+    }
+     
+},
+  {
+    $group:
+    {
+    _id:"$city",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+50::
+
+
+[
+  {
+    $match:
+    {
+      gender:"Female",
+      city:"Goa",
+      age:{"$gt":24},
+       skills:["Python","C++"]
+  
+    }
+     
+},
+  {
+    $group:
+    {
+    _id:"$city",
+      count:{$sum:1},
+      users: { $push: "$$ROOT" }
+}
+  }
+  ]
+
+
+
+
+
+
+
